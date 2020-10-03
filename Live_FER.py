@@ -73,7 +73,9 @@ def image_detect(img_link):
     
     resized_img = cv2.resize(c_img, (1000, 700))  
     cv2.imshow('Facial emotion analysis ',resized_img)
+    cv2.imwrite("All_Emotions_Detection.jpg", resized_img)
     if cv2.waitKey(0) == ord('s'):
         cv2.destroyAllWindows()
 
-image_detect("all_emotions2.jpeg")
+image_detect("all_emotions1.jpg")
+# video_detect()
