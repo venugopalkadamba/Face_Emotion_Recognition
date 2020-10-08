@@ -1,0 +1,37 @@
+{% extends 'main.html' %}
+{% block content %}
+<script>
+    function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result)
+                        .width(600)
+                        .height(400);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+</script>
+
+<style>
+    @media(max-width: 768px){
+        #blah{
+            margin-top: 10px;
+        }
+    }
+</style>
+<center><h2>Face Emotion Recognition with Deep Learning</h2></center>
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <center>
+            <img id="blah" src="/static/images/All_Emotions_Detection.jpg" style="height:400px;box-shadow: 0 0 10px black;" class="img-fluid img-thumbnail">
+        </center><br>
+        <center><a href="{{ url_for('video') }}" class="btn btn-warning" style="width: 50%;">Detect Live</a></center>
+        </div>
+    </div>
+{% endblock %}
